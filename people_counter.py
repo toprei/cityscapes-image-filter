@@ -65,3 +65,5 @@ if __name__ == '__main__':
     with open("random_list.txt", "wb") as fp:
         pickle.dump(random_list, fp)
     '''
+
+    
