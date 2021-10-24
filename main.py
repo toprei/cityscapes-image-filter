@@ -7,7 +7,7 @@ if __name__ == '__main__':
     annotations_list = []
 
     # load created filtered random image list and cityscapes annotation file
-    with open("random_list.txt", "rb") as fp:
+    with open("random_list_21-29.txt", "rb") as fp:
         filtered_list_random = pickle.load(fp)
     with open("cityscapes_train.json") as jsonFile:
         jsonObject = json.load(jsonFile)
@@ -17,10 +17,10 @@ if __name__ == '__main__':
     annotations = jsonObject['annotations']
 
     # set wished length of dataset
-    dataset_size = 1500
+    #dataset_size = 100
 
     # truncate filtered random list to 'dataset_size' first images
-    del filtered_list_random[dataset_size:]
+    #del filtered_list_random[dataset_size:]
 
     # create coco annotation json file for these images
     for id, image_obj in enumerate(images):
@@ -37,7 +37,7 @@ if __name__ == '__main__':
         "annotations": annotations_list
     }
     print("start dumping json")
-    with open('cityscapes_train_filtered_{}.json'.format(str(dataset_size)), 'w') as jsonFile:
+    with open('cityscapes_train_21-29.json', 'w') as jsonFile:
         json.dump(json_data, jsonFile)
         jsonFile.close()
 
